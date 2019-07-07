@@ -1,4 +1,6 @@
-- hosts: namth22
+- hosts: 127.0.0.1
+  connection: local
+  
   become: true
   become_method: su
   become_user: root
