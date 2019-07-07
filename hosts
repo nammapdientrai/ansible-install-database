@@ -1,2 +1,2 @@
 [namth22]
-192.168.56.103
+192.168.56.103 ansible_ssh_user=namth22 ansible_ssh_pass=nam123456
