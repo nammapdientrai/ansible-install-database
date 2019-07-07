@@ -40,5 +40,8 @@
       - sysstat.x86_64
       - xorg-x11-xauth.x86_64
     when: oracle_version | regex_replace ('^([0-9]{1,2}.[0-9]{1,}.[0-9]{1,})(.*)$','\g<1>') == "11.2.0"
+    become: true
+    become_method: su
+    become_user: namth22
 
 # ansible-playbook -i hosts --extra-vars='ansible_ssh_user=namth22 ansible_ssh_pass=nam123456 ansible_become_pass=nam123456' install-packages.yml
