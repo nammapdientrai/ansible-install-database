@@ -6,12 +6,6 @@
   become_user: namth22
 
   tasks:
-  - name: install dev tools
-    apt: name="@Development tools" state=present
-    become: true
-    become_method: su
-    become_user: namth22
-
   - name: install x86 oracle dependencies for 11g
     apt: name={{ item }} state=present
     with_items:
