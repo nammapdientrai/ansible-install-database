@@ -6,6 +6,12 @@
   become_user: namth22
 
   tasks:
+  - name: install dev tools
+    apt: name="@Development tools" state=present
+    become: true
+    become_method: su
+    become_user: namth22
+
   - name: install x86 oracle dependencies for 11g
     apt: name={{ item }} state=present
     with_items:
@@ -36,7 +42,7 @@
       - ksh
       - sysstat.x86_64
       - xorg-x11-xauth.x86_64
-    when: oracle_version | regex_replace ('^([0-9]{1,2}.[0-9]{1,}.[0-9]{1,})(.*)$','\g<1>') == "11.2.0"
+    # when: oracle_version | regex_replace ('^([0-9]{1,2}.[0-9]{1,}.[0-9]{1,})(.*)$','\g<1>') == "11.2.0"
     become: true
     become_method: su
     become_user: namth22
